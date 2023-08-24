@@ -11,6 +11,7 @@ public enum Results {
 	ERROE_REQUEST(400000, "请求错误"),
 	//5XX：服务器执行一个完全有效请求失败
 	ERROR_SYSTEM(500000, "系统内部错误"),
+	ERROR_ORDER_INCREASE(500001, "订单生成错误")
 	;
 	
 	private int code;

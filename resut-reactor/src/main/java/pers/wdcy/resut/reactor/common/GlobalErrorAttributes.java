@@ -26,8 +26,7 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes{
 		Map<String, Object> attributes = super.getErrorAttributes(request, options);
 
 		Throwable error = getError(request);
-		log.error("错误:{}", error.getMessage(), error);
-
+		log.error("错误:{}", attributes, error);
 		if (error instanceof GlobalException) {
 			GlobalException ge = (GlobalException) error;
 			attributes.put("result", Result.error(ge.getStatusCode().value(), ge.getMessage(), null));

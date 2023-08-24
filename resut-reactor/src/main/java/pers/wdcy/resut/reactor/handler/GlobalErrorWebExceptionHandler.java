@@ -19,13 +19,14 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import pers.wdcy.resut.reactor.common.GlobalErrorAttributes;
 import reactor.core.publisher.Mono;
 
 @Component
 @Order(-2)
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler{
 
-	public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, WebProperties resources,
+	public GlobalErrorWebExceptionHandler(GlobalErrorAttributes errorAttributes, WebProperties resources,
 			ApplicationContext applicationContext, ServerCodecConfigurer configurer) {
 		super(errorAttributes, resources.getResources(), applicationContext);
 		this.setMessageReaders(configurer.getReaders());
