@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,8 +17,6 @@ public class Result<T> implements Serializable{
 	 */
 	private static final long serialVersionUID = 6209998427223041092L;
 
-	private int status;
-	
 	private int code;
 	
 	private String message;
@@ -33,11 +30,10 @@ public class Result<T> implements Serializable{
 	private T data;
 	
 	Result() {
-//		this(Results.SUCCESS.code(), Results.SUCCESS.message(), true, null);
+		this(Results.SUCCESS.code(), Results.SUCCESS.message(), true, null);
 	}
 
-	public Result(int status, int code, String message, boolean success, T data) {
-		this.status = status;
+	public Result(int code, String message, boolean success, T data) {
 		this.code = code;
 		this.message = message;
 		this.success = success;
@@ -77,7 +73,7 @@ public class Result<T> implements Serializable{
 	}
 	
 	public static <T> Result<T> success(int code, String message, boolean success, T data) {
-		return new Result<T>(HttpStatus.OK.value() ,code, message, true, data);
+		return new Result<T>(code, message, true, data);
 	}
 	
 	public static <T> Result<T> success(int code, T data) {
@@ -122,7 +118,7 @@ public class Result<T> implements Serializable{
 	}
 	
 	public static <T> Result<T> error(int code, String message, boolean success, T data) {
-		return new Result<T>(HttpStatus.INTERNAL_SERVER_ERROR.value(), code, message, true, data);
+		return new Result<T>(code, message, true, data);
 	}
 	
 	/**
@@ -159,7 +155,7 @@ public class Result<T> implements Serializable{
 	}
 	
 	public static <T> Result<T> losing(int code, String message, boolean success, T data) {
-		return new Result<T>(HttpStatus.OK.value(), code, message, true, data);
+		return new Result<T>(code, message, true, data);
 	}
 	
 	/**
@@ -196,7 +192,7 @@ public class Result<T> implements Serializable{
 	}
 	
 	public static <T> Result<T> failure(int code, String message, boolean success, T data) {
-		return new Result<T>(HttpStatus.OK.value(), code, message, true, data);
+		return new Result<T>(code, message, true, data);
 	}
 	
 	

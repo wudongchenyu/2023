@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import pers.wdcy.resut.reactor.exception.BusinessException;
 import pers.wdcy.resut.reactor.exception.GlobalException;
 import pers.wdcy.resut.reactor.result.Result;
+import pers.wdcy.resut.reactor.result.Results;
 
 @Slf4j
 @Component
@@ -29,7 +30,7 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes{
 		log.error("错误:{}", attributes, error);
 		if (error instanceof GlobalException) {
 			GlobalException ge = (GlobalException) error;
-			attributes.put("result", Result.error(ge.getStatusCode().value(), ge.getMessage(), null));
+			attributes.put("result", Result.error(Results.ERROR_GL0BAL.code(), ge.getMessage(), null));
 			return attributes;
 		}
 
@@ -39,7 +40,7 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes{
 			return attributes;
 		}
 		attributes.put("result",
-				Result.error(Integer.parseInt(attributes.get("status").toString()), error.getMessage(), null));
+				Result.error(Results.ERROR_SYSTEM.code(), error.getMessage(), null));
 		return attributes;
 	}
 
