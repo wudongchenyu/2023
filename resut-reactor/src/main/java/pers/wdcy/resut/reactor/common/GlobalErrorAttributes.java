@@ -23,9 +23,7 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes{
 	}
 
 	private Map<String, Object> assembleAttributes(ServerRequest request, ErrorAttributeOptions options) {
-
 		Map<String, Object> attributes = super.getErrorAttributes(request, options);
-
 		Throwable error = getError(request);
 		log.error("错误:{}", attributes, error);
 		if (error instanceof GlobalException) {

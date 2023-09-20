@@ -1,6 +1,7 @@
 package pers.wdcy.resut.reactor.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,11 @@ public class ResultController {
 	@GetMapping(path = "increase/order")
 	public Mono<Result<Boolean>> increaseOrder() {
 		return resultService.increaseOrder();
+	}
+	
+	@GetMapping(path = "order/remote", produces = MediaType.APPLICATION_NDJSON_VALUE, consumes = MediaType.APPLICATION_NDJSON_VALUE)
+	public Mono<String> remote() {
+		return Mono.just("true");
 	}
 
 }
