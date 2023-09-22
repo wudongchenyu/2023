@@ -7,9 +7,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
+@Schema(description = "查询结果")
 public class Result<T> implements Serializable{
 
 	/**
@@ -17,16 +20,21 @@ public class Result<T> implements Serializable{
 	 */
 	private static final long serialVersionUID = 6209998427223041092L;
 
+	@Parameter(description = "响应代码")
 	private int code;
 	
+	@Parameter(description = "响应说明")
 	private String message;
 	
+	@Parameter(description = "接口访问是否成功")
 	private boolean success;
 	
+	@Parameter(description = "响应时间")
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS", timezone = "GMT+8")
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
 	private LocalDateTime timestamp = LocalDateTime.now();
 	
+	@Parameter(description = "响应结果")
 	private T data;
 	
 	Result() {
@@ -193,6 +201,31 @@ public class Result<T> implements Serializable{
 	
 	public static <T> Result<T> failure(int code, String message, boolean success, T data) {
 		return new Result<T>(code, message, true, data);
+	}
+	
+	public Result<T> code(int code) {
+		this.code = code;
+		return this;
+	}
+	
+	public Result<T> message(String message) {
+		this.message = message;
+		return this;
+	}
+	
+	public Result<T> success(boolean success) {
+		this.success = success;
+		return this;
+	}
+	
+	public Result<T> timestamp(LocalDateTime timestamp) {
+		this.timestamp = timestamp;
+		return this;
+	}
+	
+	public Result<T> data(T data) {
+		this.data = data;
+		return this;
 	}
 	
 	
