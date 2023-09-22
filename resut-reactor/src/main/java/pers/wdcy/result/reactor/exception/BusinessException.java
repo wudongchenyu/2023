@@ -1,7 +1,7 @@
-package pers.wdcy.resut.reactor.exception;
+package pers.wdcy.result.reactor.exception;
 
 import lombok.Getter;
-import pers.wdcy.resut.reactor.result.Results;
+import pers.wdcy.result.reactor.result.Results;
 
 @Getter
 public class BusinessException extends RuntimeException{

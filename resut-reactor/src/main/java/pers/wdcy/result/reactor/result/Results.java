@@ -1,4 +1,4 @@
-package pers.wdcy.resut.reactor.result;
+package pers.wdcy.result.reactor.result;
 
 public enum Results {
 	//1XX：请求收到，继续处理

@@ -1,4 +1,4 @@
-package pers.wdcy.resut.reactor.result;
+package pers.wdcy.result.reactor.result;
 
 import java.io.Serializable;
 

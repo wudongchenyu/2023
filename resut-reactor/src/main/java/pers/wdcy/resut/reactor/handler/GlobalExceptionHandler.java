@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 
 import lombok.extern.slf4j.Slf4j;
-import pers.wdcy.resut.reactor.result.Result;
+import pers.wdcy.result.reactor.result.Result;
 import reactor.core.publisher.Mono;
 
 @Slf4j

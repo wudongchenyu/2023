@@ -1,4 +1,4 @@
-package pers.wdcy.resut.reactor.common;
+package pers.wdcy.result.reactor.common;
 
 import java.util.Map;
 
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 
 import lombok.extern.slf4j.Slf4j;
-import pers.wdcy.resut.reactor.exception.BusinessException;
-import pers.wdcy.resut.reactor.exception.GlobalException;
-import pers.wdcy.resut.reactor.result.Result;
-import pers.wdcy.resut.reactor.result.Results;
+import pers.wdcy.result.reactor.exception.BusinessException;
+import pers.wdcy.result.reactor.exception.GlobalException;
+import pers.wdcy.result.reactor.result.Result;
+import pers.wdcy.result.reactor.result.Results;
 
 @Slf4j
 @Component

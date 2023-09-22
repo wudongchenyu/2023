@@ -1,4 +1,4 @@
-package pers.wdcy.resut.reactor.exception;
+package pers.wdcy.result.reactor.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

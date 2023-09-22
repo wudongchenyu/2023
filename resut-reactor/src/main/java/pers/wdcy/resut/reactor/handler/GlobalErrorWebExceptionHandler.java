@@ -19,7 +19,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import pers.wdcy.resut.reactor.common.GlobalErrorAttributes;
+import pers.wdcy.result.reactor.common.GlobalErrorAttributes;
 import reactor.core.publisher.Mono;
 
 @Component
