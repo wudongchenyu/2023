@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Schema(description = "分页查询结果")
 public class PageResult<T> extends Result<T>{
 
@@ -25,9 +25,11 @@ public class PageResult<T> extends Result<T>{
 	private long total;
 	
 	public PageResult() {
+		super();
 	}
 	
 	public PageResult(Result<T> result, int current, int size, long total) {
+		super();
 		data(result.getData());
 		code(result.getCode());
 		message(result.getMessage());
