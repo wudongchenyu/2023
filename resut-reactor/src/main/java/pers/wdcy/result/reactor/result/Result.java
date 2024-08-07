@@ -64,10 +64,6 @@ public class Result<T> implements Serializable{
 		return success(Results.SUCCESS.message(), data);
 	}
 
-	public static <T> Result<T> success(Results results) {
-		return success(results.code(), results.message(), null);
-	}
-	
 	public static <T> Result<T> success(Results results, T data) {
 		return success(results.code(), results.message(), data);
 	}
@@ -105,10 +101,6 @@ public class Result<T> implements Serializable{
 		return error(Results.ERROR_SYSTEM.message(), data);
 	}
 
-	public static <T> Result<T> error(Results results) {
-		return error(results.code(), results.message(), null);
-	}
-	
 	public static <T> Result<T> error(Results results, T data) {
 		return error(results.code(), results.message(), data);
 	}
@@ -140,10 +132,6 @@ public class Result<T> implements Serializable{
 
 	public static <T> Result<T> losing(T data) {
 		return losing(Results.SUCCESS.message(), data);
-	}
-	
-	public static <T> Result<T> losing(Results results) {
-		return losing(results.code(), results.message(), null);
 	}
 	
 	public static <T> Result<T> losing(Results results, T data) {
@@ -179,10 +167,6 @@ public class Result<T> implements Serializable{
 		return failure(Results.SUCCESS.message(), data);
 	}
 
-	public static <T> Result<T> failure(Results results) {
-		return failure(results.code(), results.message(), null);
-	}
-	
 	public static <T> Result<T> failure(Results results, T data) {
 		return failure(results.code(), results.message(), data);
 	}
